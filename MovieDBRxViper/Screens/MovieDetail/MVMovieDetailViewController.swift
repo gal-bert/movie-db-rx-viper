@@ -35,6 +35,8 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
 	let presenter: MVMovieDetailViewPresenterProtocol
 
 	// MARK: Variables
+    
+    let movieDetailView = MVMovieDetailView()
 
 	// MARK: Inits
 
@@ -52,8 +54,12 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
 	override func viewDidLoad() {
     	super.viewDidLoad()
 		presenter.viewLoaded()
-
-		view.backgroundColor = .white
+        movieDetailView.setup(vc: self)
+        
+    }
+    
+    override func loadView() {
+        self.view = movieDetailView
     }
 
 	// MARK: - MVMovieDetail Presenter to View Protocol

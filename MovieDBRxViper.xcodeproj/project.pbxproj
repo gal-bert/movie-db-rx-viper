@@ -11,11 +11,14 @@
 		0C0BE0F72987C11E00C750C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F62987C11E00C750C7 /* Constants.swift */; };
 		0C0BE0F92987C47E00C750C7 /* MVGenreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F82987C47E00C750C7 /* MVGenreCollection.swift */; };
 		0C0BE0FD2987C51E00C750C7 /* MVGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0FC2987C51E00C750C7 /* MVGenre.swift */; };
+		0C215733298843A6009928BE /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0C215732298843A6009928BE /* YouTubePlayerKit */; };
 		0C32E3B9298830B300802851 /* MVMovieDetailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B4298830B300802851 /* MVMovieDetailModule.swift */; };
 		0C32E3BA298830B300802851 /* MVMovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B5298830B300802851 /* MVMovieDetailPresenter.swift */; };
 		0C32E3BB298830B300802851 /* MVMovieDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */; };
 		0C32E3BC298830B300802851 /* MVMovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B7298830B300802851 /* MVMovieDetailViewController.swift */; };
 		0C32E3BD298830B300802851 /* MVMovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B8298830B300802851 /* MVMovieDetailInteractor.swift */; };
+		0C32E3BF29883FFF00802851 /* MVMovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3BE29883FFF00802851 /* MVMovieDetailView.swift */; };
+		0C459E4D2988498400FDC454 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C459E4C2988498400FDC454 /* UIView+Ext.swift */; };
 		0C5279A52987B35900E1996C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5279A42987B35900E1996C /* AppDelegate.swift */; };
 		0C5279A72987B35900E1996C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5279A62987B35900E1996C /* SceneDelegate.swift */; };
 		0C5279A92987B35900E1996C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5279A82987B35900E1996C /* ViewController.swift */; };
@@ -51,6 +54,8 @@
 		0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailRouter.swift; sourceTree = "<group>"; };
 		0C32E3B7298830B300802851 /* MVMovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailViewController.swift; sourceTree = "<group>"; };
 		0C32E3B8298830B300802851 /* MVMovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailInteractor.swift; sourceTree = "<group>"; };
+		0C32E3BE29883FFF00802851 /* MVMovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailView.swift; sourceTree = "<group>"; };
+		0C459E4C2988498400FDC454 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		0C5279A12987B35900E1996C /* MovieDBRxViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBRxViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C5279A42987B35900E1996C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C5279A62987B35900E1996C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C215733298843A6009928BE /* YouTubePlayerKit in Frameworks */,
 				1B0CFD0B686F18AC31DB9174 /* Pods_MovieDBRxViper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +103,7 @@
 			children = (
 				0C0BE0F32987BFEB00C750C7 /* APIManager.swift */,
 				0C0BE0F62987C11E00C750C7 /* Constants.swift */,
+				0C459E4C2988498400FDC454 /* UIView+Ext.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 				0C32E3B5298830B300802851 /* MVMovieDetailPresenter.swift */,
 				0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */,
 				0C32E3B7298830B300802851 /* MVMovieDetailViewController.swift */,
+				0C32E3BE29883FFF00802851 /* MVMovieDetailView.swift */,
 				0C32E3B8298830B300802851 /* MVMovieDetailInteractor.swift */,
 			);
 			path = MovieDetail;
@@ -232,6 +240,9 @@
 			dependencies = (
 			);
 			name = MovieDBRxViper;
+			packageProductDependencies = (
+				0C215732298843A6009928BE /* YouTubePlayerKit */,
+			);
 			productName = MovieDBRxViper;
 			productReference = 0C5279A12987B35900E1996C /* MovieDBRxViper.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +271,9 @@
 				Base,
 			);
 			mainGroup = 0C5279982987B35900E1996C;
+			packageReferences = (
+				0C215731298843A6009928BE /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+			);
 			productRefGroup = 0C5279A22987B35900E1996C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,12 +355,14 @@
 				0C0BE0F42987BFEB00C750C7 /* APIManager.swift in Sources */,
 				0C32E3BA298830B300802851 /* MVMovieDetailPresenter.swift in Sources */,
 				0C0BE0FD2987C51E00C750C7 /* MVGenre.swift in Sources */,
+				0C459E4D2988498400FDC454 /* UIView+Ext.swift in Sources */,
 				0CC3C9E82987DE3C00488508 /* MVMovie.swift in Sources */,
 				0CC3C9D82987CEAA00488508 /* MVHomeView.swift in Sources */,
 				0CC3C9E22987D9B400488508 /* MVMovieListModule.swift in Sources */,
 				0C5279A92987B35900E1996C /* ViewController.swift in Sources */,
 				0CC3C9E42987D9B400488508 /* MVMovieListRouter.swift in Sources */,
 				0CC3C9D22987CCFB00488508 /* MVHomePresenter.swift in Sources */,
+				0C32E3BF29883FFF00802851 /* MVMovieDetailView.swift in Sources */,
 				0C5279A52987B35900E1996C /* AppDelegate.swift in Sources */,
 				0C0BE0F92987C47E00C750C7 /* MVGenreCollection.swift in Sources */,
 				0C5279A72987B35900E1996C /* SceneDelegate.swift in Sources */,
@@ -570,6 +586,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0C215731298843A6009928BE /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C215732298843A6009928BE /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C215731298843A6009928BE /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C5279992987B35900E1996C /* Project object */;
 }

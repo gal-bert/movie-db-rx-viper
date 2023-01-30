@@ -9,6 +9,7 @@ target 'MovieDBRxViper' do
     pod 'RxCocoa', '6.5.0'
     pod 'SwiftyVIPER', '~> 1.0'
     pod 'SDWebImage', '~> 5.0'
+    pod ‘YoutubePlayer-in-WKWebView’, “~> 0.2.0”
   # Pods for MovieDBRxViper
 
 end

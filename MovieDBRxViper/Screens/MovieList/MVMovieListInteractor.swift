@@ -33,10 +33,10 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
 	// MARK: - Variables
 
 	weak var presenter: MVMovieListInteractorPresenterProtocol?
-    var obsMovies = BehaviorRelay<[MVMovie]>(value: [])
-    var genre: MVGenre?
     
+    var obsMovies = BehaviorRelay<[MVMovie]>(value: [])
     var disposeBag = DisposeBag()
+    var genre: MVGenre?    
     
     private var page = 1
     private var maxPage = -1
@@ -65,6 +65,7 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
         return obsMovies
     }
     
+    /// Load movies while limiting the pagination by comparing current page and max page count
     func loadMovies() {
         guard page != maxPage  else { return }
         APIManager.shared.fetchRelatedMovies(genreId: genre?.id ?? 0, page: page) { [weak self] response in
