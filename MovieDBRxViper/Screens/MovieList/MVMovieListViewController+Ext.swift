@@ -23,6 +23,7 @@ extension MVMovieListViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(obsMovies?.value[indexPath.row].id, obsMovies?.value[indexPath.row].title)
+        presenter.pushToMovieDetail()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

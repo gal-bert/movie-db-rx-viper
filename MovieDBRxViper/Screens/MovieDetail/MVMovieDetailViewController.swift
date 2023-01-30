@@ -17,7 +17,7 @@ import SwiftyVIPER
 // MARK: Protocols
 
 /// Should be conformed to by the `MVMovieDetailViewController` and referenced by `MVMovieDetailPresenter`
-protocol MVMovieDetailPresenterViewProtocol: class {
+protocol MVMovieDetailPresenterViewProtocol: AnyObject {
 	/** Sets the title for the view
 	- parameters:
 		- title The title to set

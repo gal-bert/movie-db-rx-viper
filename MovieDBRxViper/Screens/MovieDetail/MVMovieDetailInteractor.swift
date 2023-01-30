@@ -33,6 +33,6 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
 	// MARK: - MVMovieDetail Presenter to Interactor Protocol
 
 	func requestTitle() {
-		presenter?.set(title: "MVMovieDetail")
+		presenter?.set(title: "Movie Information")
 	}
 }

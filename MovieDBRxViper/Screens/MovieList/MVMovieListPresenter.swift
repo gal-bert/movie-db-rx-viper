@@ -21,6 +21,7 @@ import RxCocoa
 protocol MVMovieListViewPresenterProtocol: ViewPresenterProtocol {
     func getObsMovies() -> BehaviorRelay<[MVMovie]>
     func loadMovies()
+    func pushToMovieDetail()
 }
 
 /// Should be conformed to by the `MVMovieListPresenter` and referenced by `MVMovieListInteractor`
@@ -37,6 +38,7 @@ protocol MVMovieListInteractorPresenterProtocol: AnyObject {
 
 /// The Presenter for the MVMovieList module
 final class MVMovieListPresenter: MVMovieListViewPresenterProtocol, MVMovieListInteractorPresenterProtocol {
+
 
 	// MARK: - Constants
 
@@ -66,6 +68,10 @@ final class MVMovieListPresenter: MVMovieListViewPresenterProtocol, MVMovieListI
     
     func loadMovies() {
         interactor.loadMovies()
+    }
+    
+    func pushToMovieDetail() {
+        router.pushToMovieDetail()
     }
 
 	// MARK: - MVMovieList Interactor to Presenter Protocol

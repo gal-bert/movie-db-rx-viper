@@ -18,11 +18,11 @@ import SwiftyVIPER
 
 /// Should be conformed to by the `MVMovieDetailPresenter` and referenced by `MVMovieDetailViewController`
 protocol MVMovieDetailViewPresenterProtocol: ViewPresenterProtocol {
-
+    
 }
 
 /// Should be conformed to by the `MVMovieDetailPresenter` and referenced by `MVMovieDetailInteractor`
-protocol MVMovieDetailInteractorPresenterProtocol: class {
+protocol MVMovieDetailInteractorPresenterProtocol: AnyObject {
 	/** Sets the title for the presenter
 	- parameters:
 		- title The title to set
@@ -56,6 +56,8 @@ final class MVMovieDetailPresenter: MVMovieDetailViewPresenterProtocol, MVMovieD
 	func viewLoaded() {
 		interactor.requestTitle()
 	}
+    
+    
 
 	// MARK: - MVMovieDetail Interactor to Presenter Protocol
 
