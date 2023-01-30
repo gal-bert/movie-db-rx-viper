@@ -1,2 +1,2 @@
-# movie-db-rx-viper
+# Movie DB iOS App
 Built using UIKit, VIPER, SnapKit, RxSwift, etc.
