@@ -13,18 +13,18 @@ extension MVHomeViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = obsGenres?.value.genres[indexPath.row].name
+        cell.textLabel?.text = obsGenres?.value.genres?[indexPath.row].name
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return obsGenres?.value.genres.count ?? 0
+        return obsGenres?.value.genres?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let obsGenres = obsGenres {
-            presenter.pushToMovieList(genre: obsGenres.value.genres[indexPath.row])            
+        if let genre = obsGenres?.value.genres?[indexPath.row] {
+            presenter.pushToMovieList(genre: genre)
         }
     }
     

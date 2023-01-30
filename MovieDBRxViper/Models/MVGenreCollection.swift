@@ -8,5 +8,5 @@
 import Foundation
 
 struct MVGenreCollection: Codable {
-    var genres: [MVGenre]
+    var genres: [MVGenre]?
 }

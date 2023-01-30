@@ -34,8 +34,6 @@ class MVMovieListCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .gray
-        
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleLabel)
         addSubview(stackView)
@@ -48,9 +46,10 @@ class MVMovieListCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure() {
-        imageView.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/eeUNWsdoiOijOZAMaWFDA5Pb1n8.jpg"))
-        titleLabel.text = "Puss in boots: The last wish"
+    public func configure(model: MVMovie) {
+        imageView.sd_imageTransition = .fade
+        imageView.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(model.poster_path)"))
+        titleLabel.text = model.title
     }
     
     private func setupConstraints() {

@@ -11,24 +11,32 @@
 // MARK: Imports
 
 import UIKit
-
 import SwiftyVIPER
+import RxSwift
+import RxCocoa
 
 // MARK: Protocols
 
 /// Should be conformed to by the `MVMovieListViewController` and referenced by `MVMovieListPresenter`
-protocol MVMovieListPresenterViewProtocol: class {
+protocol MVMovieListPresenterViewProtocol: AnyObject {
 	/** Sets the title for the view
 	- parameters:
 		- title The title to set
 	*/
 	func set(title: String?)
+    func reloadData()
 }
 
 // MARK: -
 
 /// The View Controller for the MVMovieList module
 class MVMovieListViewController: UIViewController, MVMovieListPresenterViewProtocol {
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.movieListView.collectionView.reloadData()
+        }
+    }
+    
 
 	// MARK: - Constants
 
@@ -37,6 +45,7 @@ class MVMovieListViewController: UIViewController, MVMovieListPresenterViewProto
 	// MARK: Variables
     
     let movieListView = MVMovieListView()
+    var obsMovies: BehaviorRelay<MVMovieCollection>?
 
 	// MARK: Inits
 
@@ -55,7 +64,9 @@ class MVMovieListViewController: UIViewController, MVMovieListPresenterViewProto
     	super.viewDidLoad()
 		presenter.viewLoaded()
         movieListView.setup(vc: self)
-		view.backgroundColor = .white
+        presenter.loadMovies()
+        obsMovies = presenter.getObsMovies()
+        
     }
     
     override func loadView() {

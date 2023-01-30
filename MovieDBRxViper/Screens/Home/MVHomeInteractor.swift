@@ -40,7 +40,7 @@ final class MVHomeInteractor: MVHomePresenterInteractorProtocol {
     
     weak var presenter: MVHomeInteractorPresenterProtocol?
 
-    var obsGenres = BehaviorRelay<MVGenreCollection>(value: MVGenreCollection(genres: []))
+    var obsGenres = BehaviorRelay<MVGenreCollection>(value: MVGenreCollection())
     var disposeBag = DisposeBag()
     
     init() {
@@ -58,7 +58,6 @@ final class MVHomeInteractor: MVHomePresenterInteractorProtocol {
             switch response {
             case .success(let genres):
                 self?.obsGenres.accept(genres)
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }

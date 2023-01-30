@@ -30,9 +30,5 @@ final class MVMovieListRouter: RouterProtocol, MVMovieListPresenterRouterProtoco
 
 	weak var viewController: UIViewController?
     
-    func goToMovieList(genre: MVGenre) {
-//        viewController?.navigationController?.pushViewController(MVMovieListModule(genre: genre).view, animated: true)
-    }
-    
     
 }

@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         APIManager.shared.fetchGenres { response in
             switch response {
             case .success(let genreList):
-                for genre in genreList.genres {
+                guard let genreList = genreList.genres else { return }
+                for genre in genreList {
                     print(genre.name)
                 }
                 

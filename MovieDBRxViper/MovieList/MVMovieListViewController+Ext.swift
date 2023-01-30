@@ -11,12 +11,14 @@ extension MVMovieListViewController: UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MVMovieListCollectionViewCell.identifier, for: indexPath) as? MVMovieListCollectionViewCell else { return UICollectionViewCell(frame: .zero) }
-        cell.configure()
+        if let movies = obsMovies?.value.results?[indexPath.row] {
+            cell.configure(model: movies)
+        }
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return obsMovies?.value.results?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

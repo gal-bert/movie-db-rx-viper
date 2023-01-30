@@ -8,8 +8,8 @@
 import Foundation
 
 struct MVMovieCollection: Codable {
-    var page: Int
-    var results: [MVMovie]
-    var total_pages: Int
-    var total_results: Int
+    var page: Int?
+    var results: [MVMovie]?
+    var total_pages: Int?
+    var total_results: Int?
 }

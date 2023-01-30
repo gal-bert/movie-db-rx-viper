@@ -12,7 +12,14 @@ class APIManager {
     static let shared = APIManager()
     
     func fetchGenres(completion: @escaping(Result<MVGenreCollection, Error>) -> Void) {
-        guard let url = URL(string: Endpoints.genreList) else { return }
+        
+        var urlComponents = URLComponents(string: Endpoints.genreList)
+        let queryItems = [
+            URLQueryItem(name: "api_key", value: "\(Constants.apiKey)")
+        ]
+        urlComponents?.queryItems = queryItems
+        
+        guard let url = urlComponents?.url  else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -44,6 +51,7 @@ class APIManager {
         
         var urlComponents = URLComponents(string: Endpoints.movieList)
         let queryItems = [
+            URLQueryItem(name: "api_key", value: "\(Constants.apiKey)"),
             URLQueryItem(name: "with_genres", value: "\(genreId)"),
             URLQueryItem(name: "page", value: "\(page)")
         ]
