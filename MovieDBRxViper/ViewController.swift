@@ -11,8 +11,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        APIManager.shared.fetchGenres { response in
+            switch response {
+            case .success(let genreList):
+                for genre in genreList.genres {
+                    print(genre.name)
+                }
                 
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
     }
 
 
