@@ -8,6 +8,7 @@ target 'MovieDBRxViper' do
     pod 'RxSwift', '6.5.0'
     pod 'RxCocoa', '6.5.0'
     pod 'SwiftyVIPER', '~> 1.0'
+    pod 'SDWebImage', '~> 5.0'
   # Pods for MovieDBRxViper
 
 end

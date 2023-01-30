@@ -21,5 +21,12 @@ extension MVHomeViewController: UITableViewDataSource, UITableViewDelegate {
         return obsGenres?.value.genres.count ?? 0
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let obsGenres = obsGenres {
+            presenter.pushToMovieList(genre: obsGenres.value.genres[indexPath.row])            
+        }
+    }
+    
     
 }

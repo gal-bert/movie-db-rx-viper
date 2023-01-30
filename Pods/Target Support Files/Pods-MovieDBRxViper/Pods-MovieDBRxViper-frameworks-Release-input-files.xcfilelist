@@ -2,5 +2,6 @@ ${PODS_ROOT}/Target Support Files/Pods-MovieDBRxViper/Pods-MovieDBRxViper-framew
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyVIPER/SwiftyVIPER.framework

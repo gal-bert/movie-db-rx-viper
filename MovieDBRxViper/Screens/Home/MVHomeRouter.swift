@@ -18,15 +18,19 @@ import SwiftyVIPER
 
 /// Should be conformed to by the `MVHomeRouter` and referenced by `MVHomePresenter`
 protocol MVHomePresenterRouterProtocol: PresenterRouterProtocol {
-
+    func pushToMovieList(genre: MVGenre)
 }
 
 // MARK: -
 
 /// The Router for the MVHome module
 final class MVHomeRouter: RouterProtocol, MVHomePresenterRouterProtocol {
-
+   
 	// MARK: - Variables
 
 	weak var viewController: UIViewController?
+    
+    func pushToMovieList(genre: MVGenre) {
+        viewController?.navigationController?.pushViewController(MVMovieListModule(genre: genre).view, animated: true)
+    }
 }

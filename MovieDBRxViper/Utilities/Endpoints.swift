@@ -16,6 +16,6 @@ enum Constants {
 
 enum Endpoints {
     static let genreList = "\(Constants.endpoint)\(Constants.genreListUrl)\(Constants.apiKey)"
-    static let movieList = "\(Constants.endpoint)\(Constants.apiKey)"
+    static let movieList = "\(Constants.endpoint)\(Constants.movieListUrl)\(Constants.apiKey)"
     
 }

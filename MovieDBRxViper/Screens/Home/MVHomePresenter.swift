@@ -21,6 +21,7 @@ import RxCocoa
 protocol MVHomeViewPresenterProtocol: ViewPresenterProtocol {
     func getObsGenres() -> BehaviorRelay<MVGenreCollection>
     func loadGenres()
+    func pushToMovieList(genre: MVGenre)
 }
 
 /// Should be conformed to by the `MVHomePresenter` and referenced by `MVHomeInteractor`
@@ -37,6 +38,11 @@ protocol MVHomeInteractorPresenterProtocol: AnyObject {
 
 /// The Presenter for the MVHome module
 final class MVHomePresenter: MVHomeViewPresenterProtocol, MVHomeInteractorPresenterProtocol {
+    
+    func pushToMovieList(genre: MVGenre) {
+        router.pushToMovieList(genre: genre)
+    }
+    
     func getObsGenres() -> BehaviorRelay<MVGenreCollection> {
         interactor.getObsGenres()
     }
