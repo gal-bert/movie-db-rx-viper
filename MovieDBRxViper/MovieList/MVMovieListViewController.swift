@@ -45,7 +45,7 @@ class MVMovieListViewController: UIViewController, MVMovieListPresenterViewProto
 	// MARK: Variables
     
     let movieListView = MVMovieListView()
-    var obsMovies: BehaviorRelay<MVMovieCollection>?
+    var obsMovies: BehaviorRelay<[MVMovie]>?
 
 	// MARK: Inits
 

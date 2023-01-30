@@ -48,6 +48,7 @@
 		0C5279AD2987B35A00E1996C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C5279B02987B35A00E1996C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C5279B22987B35A00E1996C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CB167052988136200177EFC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0CC3C9CC2987CCFB00488508 /* MVHomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVHomeModule.swift; sourceTree = "<group>"; };
 		0CC3C9CD2987CCFB00488508 /* MVHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVHomePresenter.swift; sourceTree = "<group>"; };
 		0CC3C9CE2987CCFB00488508 /* MVHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVHomeRouter.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				0C0BE0F32987BFEB00C750C7 /* APIManager.swift */,
+				0CB167052988136200177EFC /* MyPlayground.playground */,
 				0C0BE0F62987C11E00C750C7 /* Constants+Endpoints.swift */,
 			);
 			path = Utilities;

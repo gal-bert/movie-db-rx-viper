@@ -21,7 +21,7 @@ import RxCocoa
 protocol MVMovieListPresenterInteractorProtocol {
 	/// Requests the title for the presenter
 	func requestTitle()
-    func getObsMovies() -> BehaviorRelay<MVMovieCollection>
+    func getObsMovies() -> BehaviorRelay<[MVMovie]>
     func loadMovies()
 }
 
@@ -30,7 +30,7 @@ protocol MVMovieListPresenterInteractorProtocol {
 /// The Interactor for the MVMovieList module
 final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
     
-    func getObsMovies() -> BehaviorRelay<MVMovieCollection> {
+    func getObsMovies() -> BehaviorRelay<[MVMovie]> {
         return obsMovies
     }
     
@@ -38,7 +38,7 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
 	// MARK: - Variables
 
 	weak var presenter: MVMovieListInteractorPresenterProtocol?
-    var obsMovies = BehaviorRelay<MVMovieCollection>(value: MVMovieCollection())
+    var obsMovies = BehaviorRelay<[MVMovie]>(value: [])
     var genre: MVGenre?
     
     var disposeBag = DisposeBag()
@@ -57,7 +57,11 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
         APIManager.shared.fetchRelatedMovies(genreId: genre?.id ?? 0, page: 1) { [weak self] response in
             switch response {
             case .success(let movies):
-                self?.obsMovies.accept(movies)
+                var moviesArr = self?.obsMovies.value
+                moviesArr?.append(contentsOf: movies)
+                if let moviesArr = moviesArr {
+                    self?.obsMovies.accept(moviesArr)                    
+                }
             case .failure(let error):
                 print(error.localizedDescription)
                 

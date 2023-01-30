@@ -47,7 +47,7 @@ class APIManager {
         }.resume()
     }
     
-    func fetchRelatedMovies(genreId: Int, page: Int, completion: @escaping(Result<MVMovieCollection, Error>) -> Void) {
+    func fetchRelatedMovies(genreId: Int, page: Int, completion: @escaping(Result<[MVMovie], Error>) -> Void) {
         
         var urlComponents = URLComponents(string: Endpoints.movieList)
         let queryItems = [
@@ -73,6 +73,7 @@ class APIManager {
             if let data = data {
                 do{
                     let movies = try JSONDecoder().decode(MVMovieCollection.self, from: data)
+                    guard let movies = movies.results else { return }
                     completion(.success(movies))
                 } catch {
                     print("JSON Decoder error:", error.localizedDescription)
