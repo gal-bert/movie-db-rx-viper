@@ -11,7 +11,6 @@
 		0C0BE0F72987C11E00C750C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F62987C11E00C750C7 /* Constants.swift */; };
 		0C0BE0F92987C47E00C750C7 /* MVGenreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F82987C47E00C750C7 /* MVGenreCollection.swift */; };
 		0C0BE0FD2987C51E00C750C7 /* MVGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0FC2987C51E00C750C7 /* MVGenre.swift */; };
-		0C215733298843A6009928BE /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0C215732298843A6009928BE /* YouTubePlayerKit */; };
 		0C32E3B9298830B300802851 /* MVMovieDetailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B4298830B300802851 /* MVMovieDetailModule.swift */; };
 		0C32E3BA298830B300802851 /* MVMovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B5298830B300802851 /* MVMovieDetailPresenter.swift */; };
 		0C32E3BB298830B300802851 /* MVMovieDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */; };
@@ -90,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C215733298843A6009928BE /* YouTubePlayerKit in Frameworks */,
 				1B0CFD0B686F18AC31DB9174 /* Pods_MovieDBRxViper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +239,6 @@
 			);
 			name = MovieDBRxViper;
 			packageProductDependencies = (
-				0C215732298843A6009928BE /* YouTubePlayerKit */,
 			);
 			productName = MovieDBRxViper;
 			productReference = 0C5279A12987B35900E1996C /* MovieDBRxViper.app */;
@@ -272,7 +269,6 @@
 			);
 			mainGroup = 0C5279982987B35900E1996C;
 			packageReferences = (
-				0C215731298843A6009928BE /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 			);
 			productRefGroup = 0C5279A22987B35900E1996C /* Products */;
 			projectDirPath = "";
@@ -586,25 +582,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0C215731298843A6009928BE /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0C215732298843A6009928BE /* YouTubePlayerKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C215731298843A6009928BE /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
-			productName = YouTubePlayerKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C5279992987B35900E1996C /* Project object */;
 }
