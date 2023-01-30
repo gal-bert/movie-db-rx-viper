@@ -29,11 +29,6 @@ protocol MVMovieListPresenterInteractorProtocol {
 
 /// The Interactor for the MVMovieList module
 final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
-    
-    func getObsMovies() -> BehaviorRelay<[MVMovie]> {
-        return obsMovies
-    }
-    
 
 	// MARK: - Variables
 
@@ -54,6 +49,20 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
         _ = obsMovies.subscribe { _ in
             self.presenter?.reloadData()
         }.disposed(by: disposeBag)
+    }
+
+	// MARK: - MVMovieList Presenter to Interactor Protocol
+
+	func requestTitle() {
+        if let genre = genre {
+            presenter?.set(title: "\(genre.name) Movies")
+        } else {
+            presenter?.set(title: "Movie List")
+        }
+	}
+    
+    func getObsMovies() -> BehaviorRelay<[MVMovie]> {
+        return obsMovies
     }
     
     func loadMovies() {
@@ -81,14 +90,5 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
             }
         }
     }
-
-	// MARK: - MVMovieList Presenter to Interactor Protocol
-
-	func requestTitle() {
-        if let genre = genre {
-            presenter?.set(title: "\(genre.name) Movies")
-        } else {
-            presenter?.set(title: "Movie List")
-        }
-	}
+    
 }

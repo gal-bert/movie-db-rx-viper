@@ -30,5 +30,4 @@ final class MVMovieListRouter: RouterProtocol, MVMovieListPresenterRouterProtoco
 
 	weak var viewController: UIViewController?
     
-    
 }

@@ -31,13 +31,6 @@ protocol MVHomePresenterViewProtocol: AnyObject {
 
 /// The View Controller for the MVHome module
 class MVHomeViewController: UIViewController, MVHomePresenterViewProtocol {
-    
-    func reloadData() {
-        DispatchQueue.main.async {
-            self.homeView.tableView.reloadData()
-        }
-    }
-    
 
 	// MARK: - Constants
 
@@ -78,4 +71,11 @@ class MVHomeViewController: UIViewController, MVHomePresenterViewProtocol {
 	func set(title: String?) {
 		self.title = title
 	}
+    
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.homeView.tableView.reloadData()
+        }
+    }
+    
 }

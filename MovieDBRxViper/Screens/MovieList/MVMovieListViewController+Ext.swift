@@ -21,6 +21,10 @@ extension MVMovieListViewController: UICollectionViewDelegate, UICollectionViewD
         return obsMovies?.value.count ?? 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(obsMovies?.value[indexPath.row].id, obsMovies?.value[indexPath.row].title)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width / 2 - 20
         let height = UIScreen.main.bounds.height / 3

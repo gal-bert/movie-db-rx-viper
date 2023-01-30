@@ -39,24 +39,6 @@ protocol MVHomeInteractorPresenterProtocol: AnyObject {
 /// The Presenter for the MVHome module
 final class MVHomePresenter: MVHomeViewPresenterProtocol, MVHomeInteractorPresenterProtocol {
     
-    func pushToMovieList(genre: MVGenre) {
-        router.pushToMovieList(genre: genre)
-    }
-    
-    func getObsGenres() -> BehaviorRelay<MVGenreCollection> {
-        interactor.getObsGenres()
-    }
-    
-    func loadGenres() {
-        interactor.loadGenres()
-    }
-    
-    
-    func reloadData() {
-        view?.reloadData()
-    }
-    
-
 	// MARK: - Constants
 
 	let router: MVHomePresenterRouterProtocol
@@ -78,10 +60,27 @@ final class MVHomePresenter: MVHomeViewPresenterProtocol, MVHomeInteractorPresen
 	func viewLoaded() {
 		interactor.requestTitle()
 	}
+    
+    func getObsGenres() -> BehaviorRelay<MVGenreCollection> {
+        interactor.getObsGenres()
+    }
+
+    func loadGenres() {
+        interactor.loadGenres()
+    }
+
+    func pushToMovieList(genre: MVGenre) {
+        router.pushToMovieList(genre: genre)
+    }
+    
 
 	// MARK: - MVHome Interactor to Presenter Protocol
 
 	func set(title: String?) {
 		view?.set(title: title)
 	}
+    
+    func reloadData() {
+        view?.reloadData()
+    }
 }

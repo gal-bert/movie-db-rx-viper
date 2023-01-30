@@ -37,20 +37,6 @@ protocol MVMovieListInteractorPresenterProtocol: AnyObject {
 
 /// The Presenter for the MVMovieList module
 final class MVMovieListPresenter: MVMovieListViewPresenterProtocol, MVMovieListInteractorPresenterProtocol {
-    func loadMovies() {
-        interactor.loadMovies()
-    }
-    
-    
-    func getObsMovies() -> BehaviorRelay<[MVMovie]> {
-        interactor.getObsMovies()
-    }
-    
-    
-    func reloadData() {
-        view?.reloadData()
-    }
-    
 
 	// MARK: - Constants
 
@@ -73,10 +59,23 @@ final class MVMovieListPresenter: MVMovieListViewPresenterProtocol, MVMovieListI
 	func viewLoaded() {
 		interactor.requestTitle()
 	}
+    
+    func getObsMovies() -> BehaviorRelay<[MVMovie]> {
+        interactor.getObsMovies()
+    }
+    
+    func loadMovies() {
+        interactor.loadMovies()
+    }
 
 	// MARK: - MVMovieList Interactor to Presenter Protocol
 
 	func set(title: String?) {
 		view?.set(title: title)
 	}
+    
+    func reloadData() {
+        view?.reloadData()
+    }
+    
 }

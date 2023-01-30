@@ -49,7 +49,7 @@ class MVMovieListCollectionViewCell: UICollectionViewCell {
     public func configure(model: MVMovie) {
         imageView.sd_imageTransition = .fade
         if let imagePath = model.poster_path, let title = model.title {
-            imageView.sd_setImage(with: URL(string: "\(Endpoints.imagePath)\(imagePath)"))
+            imageView.sd_setImage(with: URL(string: "\(Constants.imagePath)\(imagePath)"))
             titleLabel.text = title
         }
     }

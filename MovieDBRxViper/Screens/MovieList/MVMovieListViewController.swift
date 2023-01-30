@@ -31,13 +31,7 @@ protocol MVMovieListPresenterViewProtocol: AnyObject {
 
 /// The View Controller for the MVMovieList module
 class MVMovieListViewController: UIViewController, MVMovieListPresenterViewProtocol {
-    func reloadData() {
-        DispatchQueue.main.async {
-            self.movieListView.collectionView.reloadData()
-        }
-    }
     
-
 	// MARK: - Constants
 
 	let presenter: MVMovieListViewPresenterProtocol
@@ -78,4 +72,11 @@ class MVMovieListViewController: UIViewController, MVMovieListPresenterViewProto
 	func set(title: String?) {
 		self.title = title
 	}
+    
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.movieListView.collectionView.reloadData()
+        }
+    }
+    
 }

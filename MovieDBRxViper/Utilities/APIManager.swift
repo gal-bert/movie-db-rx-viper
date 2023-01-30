@@ -13,7 +13,7 @@ class APIManager {
     
     func fetchGenres(completion: @escaping(Result<MVGenreCollection, Error>) -> Void) {
         
-        var urlComponents = URLComponents(string: Endpoints.genreList)
+        var urlComponents = URLComponents(string: Constants.genreList)
         let queryItems = [
             URLQueryItem(name: "api_key", value: "\(Constants.apiKey)")
         ]
@@ -49,7 +49,7 @@ class APIManager {
     
     func fetchRelatedMovies(genreId: Int, page: Int, completion: @escaping(Result<MVMovieCollection, Error>) -> Void) {
         
-        var urlComponents = URLComponents(string: Endpoints.movieList)
+        var urlComponents = URLComponents(string: Constants.movieList)
         let queryItems = [
             URLQueryItem(name: "api_key", value: "\(Constants.apiKey)"),
             URLQueryItem(name: "language", value: "en-us"),

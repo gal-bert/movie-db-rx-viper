@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0C0BE0F42987BFEB00C750C7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F32987BFEB00C750C7 /* APIManager.swift */; };
-		0C0BE0F72987C11E00C750C7 /* Constants+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F62987C11E00C750C7 /* Constants+Endpoints.swift */; };
+		0C0BE0F72987C11E00C750C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F62987C11E00C750C7 /* Constants.swift */; };
 		0C0BE0F92987C47E00C750C7 /* MVGenreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F82987C47E00C750C7 /* MVGenreCollection.swift */; };
 		0C0BE0FD2987C51E00C750C7 /* MVGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0FC2987C51E00C750C7 /* MVGenre.swift */; };
+		0C32E3B9298830B300802851 /* MVMovieDetailModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B4298830B300802851 /* MVMovieDetailModule.swift */; };
+		0C32E3BA298830B300802851 /* MVMovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B5298830B300802851 /* MVMovieDetailPresenter.swift */; };
+		0C32E3BB298830B300802851 /* MVMovieDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */; };
+		0C32E3BC298830B300802851 /* MVMovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B7298830B300802851 /* MVMovieDetailViewController.swift */; };
+		0C32E3BD298830B300802851 /* MVMovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C32E3B8298830B300802851 /* MVMovieDetailInteractor.swift */; };
 		0C5279A52987B35900E1996C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5279A42987B35900E1996C /* AppDelegate.swift */; };
 		0C5279A72987B35900E1996C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5279A62987B35900E1996C /* SceneDelegate.swift */; };
 		0C5279A92987B35900E1996C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5279A82987B35900E1996C /* ViewController.swift */; };
@@ -38,9 +43,14 @@
 
 /* Begin PBXFileReference section */
 		0C0BE0F32987BFEB00C750C7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		0C0BE0F62987C11E00C750C7 /* Constants+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Endpoints.swift"; sourceTree = "<group>"; };
+		0C0BE0F62987C11E00C750C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0C0BE0F82987C47E00C750C7 /* MVGenreCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVGenreCollection.swift; sourceTree = "<group>"; };
 		0C0BE0FC2987C51E00C750C7 /* MVGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVGenre.swift; sourceTree = "<group>"; };
+		0C32E3B4298830B300802851 /* MVMovieDetailModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailModule.swift; sourceTree = "<group>"; };
+		0C32E3B5298830B300802851 /* MVMovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailPresenter.swift; sourceTree = "<group>"; };
+		0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailRouter.swift; sourceTree = "<group>"; };
+		0C32E3B7298830B300802851 /* MVMovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailViewController.swift; sourceTree = "<group>"; };
+		0C32E3B8298830B300802851 /* MVMovieDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovieDetailInteractor.swift; sourceTree = "<group>"; };
 		0C5279A12987B35900E1996C /* MovieDBRxViper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBRxViper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C5279A42987B35900E1996C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C5279A62987B35900E1996C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +58,6 @@
 		0C5279AD2987B35A00E1996C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C5279B02987B35A00E1996C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C5279B22987B35A00E1996C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0CB167052988136200177EFC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0CC3C9CC2987CCFB00488508 /* MVHomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVHomeModule.swift; sourceTree = "<group>"; };
 		0CC3C9CD2987CCFB00488508 /* MVHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVHomePresenter.swift; sourceTree = "<group>"; };
 		0CC3C9CE2987CCFB00488508 /* MVHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVHomeRouter.swift; sourceTree = "<group>"; };
@@ -87,8 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				0C0BE0F32987BFEB00C750C7 /* APIManager.swift */,
-				0CB167052988136200177EFC /* MyPlayground.playground */,
-				0C0BE0F62987C11E00C750C7 /* Constants+Endpoints.swift */,
+				0C0BE0F62987C11E00C750C7 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -102,6 +110,18 @@
 				0CC3C9E72987DE3C00488508 /* MVMovie.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0C32E3B32988308D00802851 /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0C32E3B4298830B300802851 /* MVMovieDetailModule.swift */,
+				0C32E3B5298830B300802851 /* MVMovieDetailPresenter.swift */,
+				0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */,
+				0C32E3B7298830B300802851 /* MVMovieDetailViewController.swift */,
+				0C32E3B8298830B300802851 /* MVMovieDetailInteractor.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 		0C5279982987B35900E1996C = {
@@ -133,7 +153,6 @@
 				0C5279A82987B35900E1996C /* ViewController.swift */,
 				0C0BE0FA2987C48D00C750C7 /* Models */,
 				0CC3C9DB2987D94800488508 /* Screens */,
-				0CC3C9DC2987D99000488508 /* MovieList */,
 				0C0BE0F52987C10700C750C7 /* Utilities */,
 			);
 			path = MovieDBRxViper;
@@ -157,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				0CC3C9D62987CD0600488508 /* Home */,
+				0CC3C9DC2987D99000488508 /* MovieList */,
+				0C32E3B32988308D00802851 /* MovieDetail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -307,15 +328,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C32E3BD298830B300802851 /* MVMovieDetailInteractor.swift in Sources */,
 				0CC3C9ED2987EE4200488508 /* MVMovieListView.swift in Sources */,
 				0CC3C9D52987CCFB00488508 /* MVHomeInteractor.swift in Sources */,
 				0CC3C9E62987D9B400488508 /* MVMovieListInteractor.swift in Sources */,
-				0C0BE0F72987C11E00C750C7 /* Constants+Endpoints.swift in Sources */,
+				0C0BE0F72987C11E00C750C7 /* Constants.swift in Sources */,
 				0CC3C9F12987F1FA00488508 /* MVMovieListCollectionViewCell.swift in Sources */,
 				0CC3C9E52987D9B400488508 /* MVMovieListViewController.swift in Sources */,
 				0CC3C9EA2987DF5E00488508 /* MVMovieCollection.swift in Sources */,
 				0CC3C9DA2987D04D00488508 /* MVHomeViewController+Ext.swift in Sources */,
+				0C32E3BB298830B300802851 /* MVMovieDetailRouter.swift in Sources */,
 				0C0BE0F42987BFEB00C750C7 /* APIManager.swift in Sources */,
+				0C32E3BA298830B300802851 /* MVMovieDetailPresenter.swift in Sources */,
 				0C0BE0FD2987C51E00C750C7 /* MVGenre.swift in Sources */,
 				0CC3C9E82987DE3C00488508 /* MVMovie.swift in Sources */,
 				0CC3C9D82987CEAA00488508 /* MVHomeView.swift in Sources */,
@@ -329,8 +353,10 @@
 				0CC3C9E32987D9B400488508 /* MVMovieListPresenter.swift in Sources */,
 				0CC3C9D42987CCFB00488508 /* MVHomeViewController.swift in Sources */,
 				0CC3C9EF2987F07500488508 /* MVMovieListViewController+Ext.swift in Sources */,
+				0C32E3B9298830B300802851 /* MVMovieDetailModule.swift in Sources */,
 				0CC3C9D32987CCFB00488508 /* MVHomeRouter.swift in Sources */,
 				0CC3C9D12987CCFB00488508 /* MVHomeModule.swift in Sources */,
+				0C32E3BC298830B300802851 /* MVMovieDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

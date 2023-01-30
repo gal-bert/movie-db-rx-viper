@@ -30,11 +30,6 @@ protocol MVHomePresenterInteractorProtocol {
 
 /// The Interactor for the MVHome module
 final class MVHomeInteractor: MVHomePresenterInteractorProtocol {
-    
-    func getObsGenres() -> BehaviorRelay<MVGenreCollection> {
-        return obsGenres
-    }
-    
 
 	// MARK: - Variables
     
@@ -52,6 +47,12 @@ final class MVHomeInteractor: MVHomePresenterInteractorProtocol {
             self.presenter?.reloadData()
         }.disposed(by: disposeBag)
     }
+
+	// MARK: - MVHome Presenter to Interactor Protocol
+
+	func requestTitle() {
+		presenter?.set(title: "Movie Genres")
+	}
     
     func loadGenres() {
         APIManager.shared.fetchGenres { [weak self] response in
@@ -64,10 +65,8 @@ final class MVHomeInteractor: MVHomePresenterInteractorProtocol {
         }
     }
     
-
-	// MARK: - MVHome Presenter to Interactor Protocol
-
-	func requestTitle() {
-		presenter?.set(title: "Movie Genres")
-	}
+    func getObsGenres() -> BehaviorRelay<MVGenreCollection> {
+        return obsGenres
+    }
+    
 }
