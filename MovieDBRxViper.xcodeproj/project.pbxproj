@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		0C5279A92987B35900E1996C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5279A82987B35900E1996C /* ViewController.swift */; };
 		0C5279AE2987B35A00E1996C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C5279AD2987B35A00E1996C /* Assets.xcassets */; };
 		0C5279B12987B35A00E1996C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5279AF2987B35A00E1996C /* LaunchScreen.storyboard */; };
+		1B0CFD0B686F18AC31DB9174 /* Pods_MovieDBRxViper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C844783946DE40796DA0B5E5 /* Pods_MovieDBRxViper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		0C5279AD2987B35A00E1996C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C5279B02987B35A00E1996C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C5279B22987B35A00E1996C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A72BED0A212C5CDA7812199 /* Pods-MovieDBRxViper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBRxViper.release.xcconfig"; path = "Target Support Files/Pods-MovieDBRxViper/Pods-MovieDBRxViper.release.xcconfig"; sourceTree = "<group>"; };
+		5F6D0933FD11087E2893339E /* Pods-MovieDBRxViper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBRxViper.debug.xcconfig"; path = "Target Support Files/Pods-MovieDBRxViper/Pods-MovieDBRxViper.debug.xcconfig"; sourceTree = "<group>"; };
+		C844783946DE40796DA0B5E5 /* Pods_MovieDBRxViper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDBRxViper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0CFD0B686F18AC31DB9174 /* Pods_MovieDBRxViper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				0C5279A32987B35900E1996C /* MovieDBRxViper */,
 				0C5279A22987B35900E1996C /* Products */,
+				89B28DE10176FFC3E20750B6 /* Pods */,
+				FC3FBC3E73184E6703E3417D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = MovieDBRxViper;
 			sourceTree = "<group>";
 		};
+		89B28DE10176FFC3E20750B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F6D0933FD11087E2893339E /* Pods-MovieDBRxViper.debug.xcconfig */,
+				4A72BED0A212C5CDA7812199 /* Pods-MovieDBRxViper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC3FBC3E73184E6703E3417D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C844783946DE40796DA0B5E5 /* Pods_MovieDBRxViper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C5279B52987B35A00E1996C /* Build configuration list for PBXNativeTarget "MovieDBRxViper" */;
 			buildPhases = (
+				65D38EAEBB96A308CACF5220 /* [CP] Check Pods Manifest.lock */,
 				0C52799D2987B35900E1996C /* Sources */,
 				0C52799E2987B35900E1996C /* Frameworks */,
 				0C52799F2987B35900E1996C /* Resources */,
+				8F8057C55024629E1399C635 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -100,7 +126,7 @@
 				};
 			};
 			buildConfigurationList = 0C52799C2987B35900E1996C /* Build configuration list for PBXProject "MovieDBRxViper" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -128,6 +154,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65D38EAEBB96A308CACF5220 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MovieDBRxViper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F8057C55024629E1399C635 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDBRxViper/Pods-MovieDBRxViper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MovieDBRxViper/Pods-MovieDBRxViper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieDBRxViper/Pods-MovieDBRxViper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0C52799D2987B35900E1996C /* Sources */ = {
@@ -270,6 +338,7 @@
 		};
 		0C5279B62987B35A00E1996C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F6D0933FD11087E2893339E /* Pods-MovieDBRxViper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -283,6 +352,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,6 +368,7 @@
 		};
 		0C5279B72987B35A00E1996C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A72BED0A212C5CDA7812199 /* Pods-MovieDBRxViper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +382,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
