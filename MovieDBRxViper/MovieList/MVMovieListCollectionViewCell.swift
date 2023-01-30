@@ -48,8 +48,10 @@ class MVMovieListCollectionViewCell: UICollectionViewCell {
     
     public func configure(model: MVMovie) {
         imageView.sd_imageTransition = .fade
-        imageView.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(model.poster_path)"))
-        titleLabel.text = model.title
+        if let imagePath = model.poster_path, let title = model.title {
+            imageView.sd_setImage(with: URL(string: "\(Endpoints.imagePath)\(imagePath)"))
+            titleLabel.text = title
+        }
     }
     
     private func setupConstraints() {
@@ -61,8 +63,7 @@ class MVMovieListCollectionViewCell: UICollectionViewCell {
         stackView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalTo(self)
         }
+        
     }
-    
-    
     
 }

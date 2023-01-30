@@ -17,4 +17,5 @@ enum Constants {
 enum Endpoints {
     static let genreList = "\(Constants.endpoint)\(Constants.genreListUrl)"
     static let movieList = "\(Constants.endpoint)\(Constants.movieListUrl)"
+    static let imagePath = "https://image.tmdb.org/t/p/w500/"
 }

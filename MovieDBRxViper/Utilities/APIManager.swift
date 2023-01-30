@@ -47,11 +47,13 @@ class APIManager {
         }.resume()
     }
     
-    func fetchRelatedMovies(genreId: Int, page: Int, completion: @escaping(Result<[MVMovie], Error>) -> Void) {
+    func fetchRelatedMovies(genreId: Int, page: Int, completion: @escaping(Result<MVMovieCollection, Error>) -> Void) {
         
         var urlComponents = URLComponents(string: Endpoints.movieList)
         let queryItems = [
             URLQueryItem(name: "api_key", value: "\(Constants.apiKey)"),
+            URLQueryItem(name: "language", value: "en-us"),
+            URLQueryItem(name: "with_original_language", value: "en"),
             URLQueryItem(name: "with_genres", value: "\(genreId)"),
             URLQueryItem(name: "page", value: "\(page)")
         ]
@@ -73,7 +75,7 @@ class APIManager {
             if let data = data {
                 do{
                     let movies = try JSONDecoder().decode(MVMovieCollection.self, from: data)
-                    guard let movies = movies.results else { return }
+//                    guard let movies = movies.results else { return }
                     completion(.success(movies))
                 } catch {
                     print("JSON Decoder error:", error.localizedDescription)
