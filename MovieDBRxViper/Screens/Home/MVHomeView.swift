@@ -22,9 +22,9 @@ class HomeView: UIView {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "genreCell")
         
         vc.navigationController?.navigationBar.prefersLargeTitles = true
+        vc.navigationItem.largeTitleDisplayMode = .always
         
         addSubview(tableView)
-        
         setupConstraints()
     }
     

@@ -60,9 +60,8 @@ class MVMovieListViewController: UIViewController, MVMovieListPresenterViewProto
         movieListView.setup(vc: self)
         presenter.loadMovies()
         obsMovies = presenter.getObsMovies()
-        
     }
-    
+
     override func loadView() {
         self.view = movieListView
     }

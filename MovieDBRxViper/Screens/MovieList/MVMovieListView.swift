@@ -20,6 +20,9 @@ class MVMovieListView: UIView {
         collectionView.delegate = vc
         collectionView.dataSource = vc
         collectionView.register(MVMovieListCollectionViewCell.self, forCellWithReuseIdentifier: MVMovieListCollectionViewCell.identifier)
+        
+        vc.navigationItem.largeTitleDisplayMode = .always
+        
         addSubview(collectionView)
         setupConstraints()
     }

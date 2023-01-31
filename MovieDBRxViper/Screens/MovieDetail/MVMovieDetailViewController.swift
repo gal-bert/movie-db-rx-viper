@@ -68,7 +68,6 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
         
         presenter.loadReviews()
         obsReviews = presenter.getObsReviews()
-        
     }
     
     override func loadView() {

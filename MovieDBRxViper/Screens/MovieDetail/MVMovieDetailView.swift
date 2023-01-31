@@ -63,7 +63,9 @@ class MVMovieDetailView: UIView {
         tableView.delegate = vc
         tableView.dataSource = vc
 //        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reviewCell")
-
+        
+        vc.navigationItem.largeTitleDisplayMode = .never
+        
         addSubviews(youtubePlayer, titleLabel, dateLabel, overviewLabel, reviewLabel, tableView)
         setupConstraints()
     }
