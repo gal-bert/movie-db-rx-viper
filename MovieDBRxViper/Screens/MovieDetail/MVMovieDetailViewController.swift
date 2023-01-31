@@ -11,8 +11,9 @@
 // MARK: Imports
 
 import UIKit
-
 import SwiftyVIPER
+import RxSwift
+import RxCocoa
 
 // MARK: Protocols
 
@@ -23,6 +24,7 @@ protocol MVMovieDetailPresenterViewProtocol: AnyObject {
 		- title The title to set
 	*/
 	func set(title: String?)
+    func reloadData()
 }
 
 // MARK: -
@@ -37,7 +39,8 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
 	// MARK: Variables
     
     let movieDetailView = MVMovieDetailView()
-    var movie: MVMovie?
+    var obsMovie: BehaviorRelay<MVMovie>?
+    var obsVideo: BehaviorRelay<MVVideo>?
 
 	// MARK: Inits
 
@@ -54,13 +57,16 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
 
 	override func viewDidLoad() {
     	super.viewDidLoad()
-		presenter.viewLoaded()
+        presenter.viewLoaded()
         movieDetailView.setup(vc: self)
-        movie = presenter.getMovie()
         
-        if let movie = movie {
-            movieDetailView.configureData(with: movie)            
+        obsMovie = presenter.getObsMovie()
+        if let movie = obsMovie?.value {
+            obsMovie?.accept(movie)
         }
+        
+        presenter.loadVideos()
+        obsVideo = presenter.getObsVideo()
         
     }
     
@@ -73,5 +79,13 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
 	func set(title: String?) {
 		self.title = title
 	}
+    
+    func reloadData() {
+        movieDetailView.movie = obsMovie?.value
+        movieDetailView.video = obsVideo?.value
+        DispatchQueue.main.async {
+            self.movieDetailView.configureData()            
+        }
+    }
     
 }

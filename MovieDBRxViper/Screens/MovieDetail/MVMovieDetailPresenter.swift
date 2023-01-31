@@ -11,23 +11,27 @@
 // MARK: Imports
 
 import UIKit
-
 import SwiftyVIPER
+import RxSwift
+import RxCocoa
 
 // MARK: Protocols
 
 /// Should be conformed to by the `MVMovieDetailPresenter` and referenced by `MVMovieDetailViewController`
 protocol MVMovieDetailViewPresenterProtocol: ViewPresenterProtocol {
-    func getMovie() -> MVMovie
+    func getObsMovie() -> BehaviorRelay<MVMovie>
+    func getObsVideo() -> BehaviorRelay<MVVideo>
+    func loadVideos()
 }
 
 /// Should be conformed to by the `MVMovieDetailPresenter` and referenced by `MVMovieDetailInteractor`
 protocol MVMovieDetailInteractorPresenterProtocol: AnyObject {
-	/** Sets the title for the presenter
-	- parameters:
-		- title The title to set
-	*/
-	func set(title: String?)
+    /** Sets the title for the presenter
+    - parameters:
+        - title The title to set
+    */
+    func set(title: String?)
+    func reloadData()
     
 }
 
@@ -35,7 +39,6 @@ protocol MVMovieDetailInteractorPresenterProtocol: AnyObject {
 
 /// The Presenter for the MVMovieDetail module
 final class MVMovieDetailPresenter: MVMovieDetailViewPresenterProtocol, MVMovieDetailInteractorPresenterProtocol {
-    
     
 
 	// MARK: - Constants
@@ -60,8 +63,16 @@ final class MVMovieDetailPresenter: MVMovieDetailViewPresenterProtocol, MVMovieD
 		interactor.requestTitle()
 	}
     
-    func getMovie() -> MVMovie {
-        interactor.getMovie()
+    func getObsMovie() -> BehaviorRelay<MVMovie> {
+        interactor.getObsMovie()
+    }
+    
+    func getObsVideo() -> BehaviorRelay<MVVideo> {
+        interactor.getObsVideo()
+    }
+    
+    func loadVideos() {
+        interactor.loadVideo()
     }
 
 	// MARK: - MVMovieDetail Interactor to Presenter Protocol
@@ -69,5 +80,9 @@ final class MVMovieDetailPresenter: MVMovieDetailViewPresenterProtocol, MVMovieD
 	func set(title: String?) {
 		view?.set(title: title)
 	}
+    
+    func reloadData() {
+        view?.reloadData()
+    }
     
 }

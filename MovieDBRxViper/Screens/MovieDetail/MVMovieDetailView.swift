@@ -7,9 +7,14 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 import YoutubePlayer_in_WKWebView
 
 class MVMovieDetailView: UIView {
+    
+    var movie: MVMovie?
+    var video: MVVideo?
     
     //TODO: Assess the GCD. Change if neccessary
     private lazy var youtubePlayer: WKYTPlayerView = {
@@ -41,27 +46,27 @@ class MVMovieDetailView: UIView {
     
     func setup(vc: MVMovieDetailViewController) {
         backgroundColor = .white
-        addSubviews(self.youtubePlayer, titleLabel, dateLabel, overviewLabel)
-        
-//        TODO: Move to viewcontroller
-//        DispatchQueue.main.async {
-//            self.youtubePlayer.load(withVideoId: "6JnN1DmbqoU")
-//        }
+        addSubviews(youtubePlayer, titleLabel, dateLabel, overviewLabel)
         setupConstraints()
     }
     
-    func configureData(with movie: MVMovie) {
+    func configureData() {
+        
         let df = DateFormatter()
         df.dateFormat = "y-m-d"
-        var date = df.date(from: movie.release_date ?? "2022-01-01")
-        var formattedDate = date?.formatted(date: .abbreviated, time: .omitted)
+        let date = df.date(from: movie?.release_date ?? "2022-01-01")
+        let formattedDate = date?.formatted(date: .abbreviated, time: .omitted)
         
-        
-        titleLabel.text = movie.title
-        if let date = formattedDate {
-            dateLabel.text = "\(date)"
+        DispatchQueue.main.async {
+            if let key = self.video?.key {
+                self.youtubePlayer.load(withVideoId: key)
+            }
+            self.titleLabel.text = self.movie?.title
+            if let date = formattedDate {
+                self.dateLabel.text = "\(date)"
+            }
+            self.overviewLabel.text = self.movie?.overview
         }
-        overviewLabel.text = movie.overview
         
     }
     

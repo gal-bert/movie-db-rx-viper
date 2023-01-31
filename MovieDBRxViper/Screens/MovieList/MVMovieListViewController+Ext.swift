@@ -22,8 +22,6 @@ extension MVMovieListViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: Delete print after testing 
-        print(obsMovies?.value[indexPath.row].id, obsMovies?.value[indexPath.row].title)
         presenter.pushToMovieDetail(movie: obsMovies?.value[indexPath.row] ?? MVMovie())
     }
     

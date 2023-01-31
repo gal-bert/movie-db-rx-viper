@@ -88,9 +88,8 @@ class APIManager {
         }.resume()
     }
     
-    func fetchMovieDetail(movieId: Int, completion: @escaping(Result<MVMovie, Error>) -> Void) {
-        
-        var urlComponents = URLComponents(string: Constants.movie)
+    func fetchMovieVideos(movieId: Int, completion: @escaping(Result<MVVideoCollection, Error>) -> Void) {
+        var urlComponents = URLComponents(string: "\(Constants.movie)/\(movieId)\(Constants.videoPath)")
         let queryItems = [
             URLQueryItem(name: "api_key", value: "\(Constants.apiKey)"),
         ]
@@ -101,6 +100,7 @@ class APIManager {
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            print(url)
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode)
             else {
                 print("HTTP Response not success")
@@ -110,8 +110,8 @@ class APIManager {
             
             if let data = data {
                 do{
-                    let movie = try JSONDecoder().decode(MVMovie.self, from: data)
-                    completion(.success(movie))
+                    let videos = try JSONDecoder().decode(MVVideoCollection.self, from: data)
+                    completion(.success(videos))
                 } catch {
                     print("JSON Decoder error:", error.localizedDescription)
                     completion(.failure(error))

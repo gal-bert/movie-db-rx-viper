@@ -12,6 +12,8 @@
 
 import SwiftyVIPER
 import UIKit
+import RxSwift
+import RxCocoa
 
 // MARK: -
 
@@ -48,6 +50,7 @@ final class MVMovieDetailModule: ModuleProtocol {
 		presenter.view = view
 		router.viewController = view
 		interactor.presenter = presenter
-        interactor.movie = movie
+//        interactor.movie = movie
+        interactor.obsMovie.accept(movie)
 	}
 }
