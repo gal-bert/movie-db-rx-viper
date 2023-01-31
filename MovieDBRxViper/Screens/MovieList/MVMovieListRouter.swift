@@ -18,7 +18,7 @@ import SwiftyVIPER
 
 /// Should be conformed to by the `MVMovieListRouter` and referenced by `MVMovieListPresenter`
 protocol MVMovieListPresenterRouterProtocol: PresenterRouterProtocol {
-    func pushToMovieDetail()
+    func pushToMovieDetail(movie: MVMovie)
 }
 
 // MARK: -
@@ -30,8 +30,8 @@ final class MVMovieListRouter: RouterProtocol, MVMovieListPresenterRouterProtoco
 
 	weak var viewController: UIViewController?
     
-    func pushToMovieDetail() {
-        viewController?.navigationController?.pushViewController(MVMovieDetailModule().view, animated: true)
+    func pushToMovieDetail(movie: MVMovie) {
+        viewController?.navigationController?.pushViewController(MVMovieDetailModule(movie: movie).view, animated: true)
     }
     
 }

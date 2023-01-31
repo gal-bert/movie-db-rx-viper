@@ -44,9 +44,10 @@ final class MVMovieDetailModule: ModuleProtocol {
 
 	// MARK: Inits
 
-	init() {
+    init(movie: MVMovie) {
 		presenter.view = view
 		router.viewController = view
 		interactor.presenter = presenter
+        interactor.movie = movie
 	}
 }

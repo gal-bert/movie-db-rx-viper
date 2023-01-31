@@ -88,4 +88,40 @@ class APIManager {
         }.resume()
     }
     
+    func fetchMovieDetail(movieId: Int, completion: @escaping(Result<MVMovie, Error>) -> Void) {
+        
+        var urlComponents = URLComponents(string: Constants.movie)
+        let queryItems = [
+            URLQueryItem(name: "api_key", value: "\(Constants.apiKey)"),
+        ]
+        urlComponents?.queryItems = queryItems
+        
+        guard let url = urlComponents?.url  else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode)
+            else {
+                print("HTTP Response not success")
+                completion(.failure(error!))
+                return
+            }
+            
+            if let data = data {
+                do{
+                    let movie = try JSONDecoder().decode(MVMovie.self, from: data)
+                    completion(.success(movie))
+                } catch {
+                    print("JSON Decoder error:", error.localizedDescription)
+                    completion(.failure(error))
+                }
+            } else {
+                print("Data error:", error!.localizedDescription)
+                completion(.failure(error!))
+            }
+        }.resume()
+        
+    }
+    
 }

@@ -11,6 +11,7 @@ import YoutubePlayer_in_WKWebView
 
 class MVMovieDetailView: UIView {
     
+    //TODO: Assess the GCD. Change if neccessary
     private lazy var youtubePlayer: WKYTPlayerView = {
         let view = WKYTPlayerView()
         return view
@@ -19,10 +20,8 @@ class MVMovieDetailView: UIView {
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .left
-//        view.font = UIFont(name: view.font.fontName, size: 14)
         view.font = .boldSystemFont(ofSize: 20)
         view.numberOfLines = 0
-        view.text = "Puss in Boots: The Last Wish Puss in Boots: The Last Wish"
         return view
     }()
     
@@ -30,7 +29,6 @@ class MVMovieDetailView: UIView {
         let view = UILabel()
         view.font = .boldSystemFont(ofSize: 12)
         view.textColor = .gray
-        view.text = "07 Dec 2022"
         return view
     }()
     
@@ -38,7 +36,6 @@ class MVMovieDetailView: UIView {
         let view = UILabel()
         view.numberOfLines = 0
         view.font = .systemFont(ofSize: 14)
-        view.text = "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives."
         return view
     }()
     
@@ -46,12 +43,26 @@ class MVMovieDetailView: UIView {
         backgroundColor = .white
         addSubviews(self.youtubePlayer, titleLabel, dateLabel, overviewLabel)
         
-        // TODO: Move to viewcontroller
-        DispatchQueue.main.async {
-            self.youtubePlayer.load(withVideoId: "6JnN1DmbqoU")
-        }
-        
+//        TODO: Move to viewcontroller
+//        DispatchQueue.main.async {
+//            self.youtubePlayer.load(withVideoId: "6JnN1DmbqoU")
+//        }
         setupConstraints()
+    }
+    
+    func configureData(with movie: MVMovie) {
+        let df = DateFormatter()
+        df.dateFormat = "y-m-d"
+        var date = df.date(from: movie.release_date ?? "2022-01-01")
+        var formattedDate = date?.formatted(date: .abbreviated, time: .omitted)
+        
+        
+        titleLabel.text = movie.title
+        if let date = formattedDate {
+            dateLabel.text = "\(date)"
+        }
+        overviewLabel.text = movie.overview
+        
     }
     
     private func setupConstraints() {

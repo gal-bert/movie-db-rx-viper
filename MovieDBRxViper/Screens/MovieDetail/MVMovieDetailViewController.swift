@@ -37,6 +37,7 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
 	// MARK: Variables
     
     let movieDetailView = MVMovieDetailView()
+    var movie: MVMovie?
 
 	// MARK: Inits
 
@@ -55,6 +56,11 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
     	super.viewDidLoad()
 		presenter.viewLoaded()
         movieDetailView.setup(vc: self)
+        movie = presenter.getMovie()
+        
+        if let movie = movie {
+            movieDetailView.configureData(with: movie)            
+        }
         
     }
     
@@ -67,4 +73,5 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
 	func set(title: String?) {
 		self.title = title
 	}
+    
 }

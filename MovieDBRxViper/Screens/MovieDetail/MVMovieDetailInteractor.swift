@@ -12,6 +12,8 @@
 
 import Foundation
 import SwiftyVIPER
+import RxSwift
+import RxCocoa
 
 // MARK: Protocols
 
@@ -19,6 +21,7 @@ import SwiftyVIPER
 protocol MVMovieDetailPresenterInteractorProtocol {
 	/// Requests the title for the presenter
 	func requestTitle()
+    func getMovie() -> MVMovie
 }
 
 // MARK: -
@@ -29,10 +32,39 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
 	// MARK: - Variables
 
 	weak var presenter: MVMovieDetailInteractorPresenterProtocol?
+    
+    var movie: MVMovie?
+    var disposeBag = DisposeBag()
+    
+    init() {
+        setupObserver()
+    }
+        
+    func setupObserver(){
+//        _ = obsMovie.subscribe { _ in
+//            self.presenter?.configure(with: obsMovie)
+//        }.disposed(by: disposeBag)
+    }
 
 	// MARK: - MVMovieDetail Presenter to Interactor Protocol
+    
+//    func getObsMovie() -> BehaviorRelay<MVMovie> {
+//        return obsMovie
+//    }
+    
+    func getMovie() -> MVMovie {
+        return movie ?? MVMovie()
+    }
+    
+    func loadVideo() {
+        
+    }
+    
+    func loadReview() {
+        
+    }
 
 	func requestTitle() {
-		presenter?.set(title: "Movie Information")
+        presenter?.set(title: "Movie Detail")
 	}
 }
