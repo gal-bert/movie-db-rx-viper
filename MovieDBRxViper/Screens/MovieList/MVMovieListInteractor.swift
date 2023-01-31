@@ -67,7 +67,7 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
     
     /// Load movies while limiting the pagination by comparing current page and max page count
     func loadMovies() {
-        guard page != maxPage  else { return }
+        guard page != maxPage else { return }
         APIManager.shared.fetchRelatedMovies(genreId: genre?.id ?? 0, page: page) { [weak self] response in
             switch response {
             case .success(let movies):
@@ -77,8 +77,10 @@ final class MVMovieListInteractor: MVMovieListPresenterInteractorProtocol {
 //                print("Page:", self?.page)
 //                print("Maxpage:", self?.maxPage)
                 
-                self?.page = (movies.page ?? 1) + 1
                 self?.maxPage = movies.total_pages ?? -1
+                if movies.total_pages != 1 {
+                    self?.page = (movies.page ?? 1) + 1
+                }
                 
                 let result = movies.results
                 var moviesArr = self?.obsMovies.value

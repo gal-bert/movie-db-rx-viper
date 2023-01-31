@@ -23,7 +23,9 @@ protocol MVMovieDetailPresenterInteractorProtocol {
 	func requestTitle()
     func getObsMovie() -> BehaviorRelay<MVMovie>
     func getObsVideo() -> BehaviorRelay<MVVideo>
+    func getObsReviews() -> BehaviorRelay<[MVReview]>
     func loadVideo()
+    func loadReviews()
 }
 
 // MARK: -
@@ -39,6 +41,7 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
     
     var obsMovie = BehaviorRelay<MVMovie>(value: MVMovie())
     var obsVideo = BehaviorRelay<MVVideo>(value: MVVideo())
+    var obsReviews = BehaviorRelay<[MVReview]>(value: [])
     
     init() {
         setupObserver()
@@ -53,6 +56,10 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
             self.presenter?.reloadData()
         }.disposed(by: disposeBag)
         
+        _ = obsReviews.subscribe { _ in
+            self.presenter?.reloadData()
+        }.disposed(by: disposeBag)
+        
     }
 
 	// MARK: - MVMovieDetail Presenter to Interactor Protocol
@@ -63,6 +70,10 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
     
     func getObsVideo() -> BehaviorRelay<MVVideo> {
         return obsVideo
+    }
+    
+    func getObsReviews() -> BehaviorRelay<[MVReview]> {
+        return obsReviews
     }
     
     func loadVideo() {
@@ -86,8 +97,35 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
         }
     }
     
-    func loadReview() {
-        
+    private var page = 1
+    private var maxPage = -1
+    
+    func loadReviews() {
+        guard page != maxPage else { return }
+        APIManager.shared.fetchReviews(movieId: obsMovie.value.id ?? 0) { [weak self] response in
+            switch response {
+            case .success(let reviews):
+                
+//                TODO: Remove comments after testing
+//                print("Page:", self?.page)
+//                print("Maxpage:", self?.maxPage)
+                
+                self?.maxPage = reviews.total_pages ?? -1
+                if reviews.total_pages != 1 {
+                    self?.page = (reviews.page ?? 1) + 1
+                }
+                
+                let result = reviews.results
+                var reviewArr = self?.obsReviews.value
+                reviewArr?.append(contentsOf: result ?? [])
+                if let reviewArr = reviewArr {
+                    self?.obsReviews.accept(reviewArr)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
 	func requestTitle() {

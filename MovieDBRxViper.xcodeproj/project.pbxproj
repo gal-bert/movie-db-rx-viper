@@ -11,6 +11,8 @@
 		0C02603B29891C4E00019296 /* MVReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02603A29891C4E00019296 /* MVReview.swift */; };
 		0C02603F29891FB900019296 /* MVVideoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02603E29891FB900019296 /* MVVideoCollection.swift */; };
 		0C02604129891FF100019296 /* MVVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02604029891FF100019296 /* MVVideo.swift */; };
+		0C0260432989432B00019296 /* MVAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0260422989432B00019296 /* MVAuthor.swift */; };
+		0C0260452989458900019296 /* MVMovieDetailViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0260442989458900019296 /* MVMovieDetailViewController+Ext.swift */; };
 		0C0BE0F42987BFEB00C750C7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F32987BFEB00C750C7 /* APIManager.swift */; };
 		0C0BE0F72987C11E00C750C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F62987C11E00C750C7 /* Constants.swift */; };
 		0C0BE0F92987C47E00C750C7 /* MVGenreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BE0F82987C47E00C750C7 /* MVGenreCollection.swift */; };
@@ -52,6 +54,8 @@
 		0C02603A29891C4E00019296 /* MVReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVReview.swift; sourceTree = "<group>"; };
 		0C02603E29891FB900019296 /* MVVideoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVideoCollection.swift; sourceTree = "<group>"; };
 		0C02604029891FF100019296 /* MVVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVideo.swift; sourceTree = "<group>"; };
+		0C0260422989432B00019296 /* MVAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVAuthor.swift; sourceTree = "<group>"; };
+		0C0260442989458900019296 /* MVMovieDetailViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MVMovieDetailViewController+Ext.swift"; sourceTree = "<group>"; };
 		0C0BE0F32987BFEB00C750C7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0C0BE0F62987C11E00C750C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0C0BE0F82987C47E00C750C7 /* MVGenreCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVGenreCollection.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				0CC3C9E72987DE3C00488508 /* MVMovie.swift */,
 				0C02603829891C0B00019296 /* MVReviewCollection.swift */,
 				0C02603A29891C4E00019296 /* MVReview.swift */,
+				0C0260422989432B00019296 /* MVAuthor.swift */,
 				0C02603E29891FB900019296 /* MVVideoCollection.swift */,
 				0C02604029891FF100019296 /* MVVideo.swift */,
 			);
@@ -136,6 +141,7 @@
 				0C32E3B5298830B300802851 /* MVMovieDetailPresenter.swift */,
 				0C32E3B6298830B300802851 /* MVMovieDetailRouter.swift */,
 				0C32E3B7298830B300802851 /* MVMovieDetailViewController.swift */,
+				0C0260442989458900019296 /* MVMovieDetailViewController+Ext.swift */,
 				0C32E3BE29883FFF00802851 /* MVMovieDetailView.swift */,
 				0C32E3B8298830B300802851 /* MVMovieDetailInteractor.swift */,
 			);
@@ -353,6 +359,7 @@
 				0C02603F29891FB900019296 /* MVVideoCollection.swift in Sources */,
 				0C32E3BD298830B300802851 /* MVMovieDetailInteractor.swift in Sources */,
 				0CC3C9ED2987EE4200488508 /* MVMovieListView.swift in Sources */,
+				0C0260432989432B00019296 /* MVAuthor.swift in Sources */,
 				0CC3C9D52987CCFB00488508 /* MVHomeInteractor.swift in Sources */,
 				0CC3C9E62987D9B400488508 /* MVMovieListInteractor.swift in Sources */,
 				0C0BE0F72987C11E00C750C7 /* Constants.swift in Sources */,
@@ -369,6 +376,7 @@
 				0CC3C9E82987DE3C00488508 /* MVMovie.swift in Sources */,
 				0CC3C9D82987CEAA00488508 /* MVHomeView.swift in Sources */,
 				0CC3C9E22987D9B400488508 /* MVMovieListModule.swift in Sources */,
+				0C0260452989458900019296 /* MVMovieDetailViewController+Ext.swift in Sources */,
 				0C5279A92987B35900E1996C /* ViewController.swift in Sources */,
 				0C02604129891FF100019296 /* MVVideo.swift in Sources */,
 				0CC3C9E42987D9B400488508 /* MVMovieListRouter.swift in Sources */,

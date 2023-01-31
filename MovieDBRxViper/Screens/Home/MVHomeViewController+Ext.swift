@@ -10,7 +10,7 @@ import UIKit
 extension MVHomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "genreCell") else {
             return UITableViewCell()
         }
         cell.textLabel?.text = obsGenres?.value.genres?[indexPath.row].name

@@ -16,10 +16,10 @@ class HomeView: UIView {
     }()
     
     func setup(vc: MVHomeViewController) {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         tableView.delegate = vc
         tableView.dataSource = vc
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "genreCell")
         
         vc.navigationController?.navigationBar.prefersLargeTitles = true
         

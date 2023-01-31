@@ -44,9 +44,19 @@ class MVMovieDetailView: UIView {
         return view
     }()
     
+    private lazy var tableView: UITableView = {
+        let view = UITableView()
+        return view
+    }()
+    
     func setup(vc: MVMovieDetailViewController) {
-        backgroundColor = .white
-        addSubviews(youtubePlayer, titleLabel, dateLabel, overviewLabel)
+        backgroundColor = .systemBackground
+        
+        tableView.delegate = vc
+        tableView.dataSource = vc
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reviewCell")
+        
+        addSubviews(youtubePlayer, titleLabel, dateLabel, overviewLabel, tableView)
         setupConstraints()
     }
     
@@ -66,6 +76,7 @@ class MVMovieDetailView: UIView {
                 self.dateLabel.text = "\(date)"
             }
             self.overviewLabel.text = self.movie?.overview
+            self.tableView.reloadData()
         }
         
     }
@@ -88,6 +99,12 @@ class MVMovieDetailView: UIView {
             make.left.right.equalTo(self).inset(20)
             make.top.equalTo(dateLabel.snp.bottom).offset(10)
         }
+        tableView.snp.makeConstraints { make in
+            make.left.right.equalTo(self)
+            make.top.equalTo(overviewLabel.snp.bottom).offset(10)
+            make.bottom.equalTo(safeAreaLayoutGuide)
+        }
+        
     }
     
 }

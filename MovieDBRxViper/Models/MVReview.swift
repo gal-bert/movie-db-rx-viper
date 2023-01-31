@@ -7,14 +7,7 @@
 
 import Foundation
 
-struct MVAuthor {
-    var name: String?
-    var username: String?
-    var avatar_path: String?
-    var rating: Double?
-}
-
-struct MVReview {
+struct MVReview: Codable {
     var author: String?
     var author_details: MVAuthor?
     var content: String?

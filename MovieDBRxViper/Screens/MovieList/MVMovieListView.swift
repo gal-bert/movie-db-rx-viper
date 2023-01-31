@@ -16,7 +16,7 @@ class MVMovieListView: UIView {
     }()
     
     func setup(vc: MVMovieListViewController) {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         collectionView.delegate = vc
         collectionView.dataSource = vc
         collectionView.register(MVMovieListCollectionViewCell.self, forCellWithReuseIdentifier: MVMovieListCollectionViewCell.identifier)

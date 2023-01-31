@@ -10,7 +10,7 @@ import Foundation
 struct MVReviewCollection: Codable {
     var id: Int?
     var page: Int?
-    var results: [MVMovie]?
+    var results: [MVReview]?
     var total_pages: Int?
     var total_results: Int?
 }

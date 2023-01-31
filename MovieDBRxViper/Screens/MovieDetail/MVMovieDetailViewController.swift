@@ -66,9 +66,8 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
         presenter.loadVideos()
         obsVideo = presenter.getObsVideo()
         
-//        TODO: Get reviews
-//        presenter.loadReviews()
-//        obsReviews = presenter.getObsReviews()
+        presenter.loadReviews()
+        obsReviews = presenter.getObsReviews()
         
     }
     
@@ -86,7 +85,7 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
         movieDetailView.movie = obsMovie?.value
         movieDetailView.video = obsVideo?.value
         DispatchQueue.main.async {
-            self.movieDetailView.configureData()            
+            self.movieDetailView.configureData()
         }
     }
     
