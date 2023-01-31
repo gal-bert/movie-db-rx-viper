@@ -84,6 +84,7 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
     func reloadData() {
         movieDetailView.movie = obsMovie?.value
         movieDetailView.video = obsVideo?.value
+        movieDetailView.reviews = obsReviews?.value
         DispatchQueue.main.async {
             self.movieDetailView.configureData()
         }

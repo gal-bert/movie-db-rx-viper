@@ -15,6 +15,7 @@ class MVMovieDetailView: UIView {
     
     var movie: MVMovie?
     var video: MVVideo?
+    var reviews: [MVReview]?
     
     //TODO: Assess the GCD. Change if neccessary
     private lazy var youtubePlayer: WKYTPlayerView = {
@@ -44,6 +45,13 @@ class MVMovieDetailView: UIView {
         return view
     }()
     
+    private lazy var reviewLabel: UILabel = {
+        let view = UILabel()
+        view.font = .boldSystemFont(ofSize: 12)
+        view.textColor = .gray
+        return view
+    }()
+    
     private lazy var tableView: UITableView = {
         let view = UITableView()
         return view
@@ -54,9 +62,9 @@ class MVMovieDetailView: UIView {
         
         tableView.delegate = vc
         tableView.dataSource = vc
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reviewCell")
-        
-        addSubviews(youtubePlayer, titleLabel, dateLabel, overviewLabel, tableView)
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reviewCell")
+
+        addSubviews(youtubePlayer, titleLabel, dateLabel, overviewLabel, reviewLabel, tableView)
         setupConstraints()
     }
     
@@ -76,6 +84,9 @@ class MVMovieDetailView: UIView {
                 self.dateLabel.text = "\(date)"
             }
             self.overviewLabel.text = self.movie?.overview
+                        
+            self.reviewLabel.text =  self.reviews?.count == 0 ? "No Reviews Available" : "Reviews"
+            
             self.tableView.reloadData()
         }
         
@@ -99,9 +110,13 @@ class MVMovieDetailView: UIView {
             make.left.right.equalTo(self).inset(20)
             make.top.equalTo(dateLabel.snp.bottom).offset(10)
         }
+        reviewLabel.snp.makeConstraints { make in
+            make.left.right.equalTo(self).inset(20)
+            make.top.equalTo(overviewLabel.snp.bottom).offset(10)
+        }
         tableView.snp.makeConstraints { make in
             make.left.right.equalTo(self)
-            make.top.equalTo(overviewLabel.snp.bottom).offset(10)
+            make.top.equalTo(reviewLabel.snp.bottom).offset(10)
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
         
