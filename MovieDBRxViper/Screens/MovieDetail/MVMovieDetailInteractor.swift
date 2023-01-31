@@ -34,9 +34,7 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
 	// MARK: - Variables
 
 	weak var presenter: MVMovieDetailInteractorPresenterProtocol?
-    
-//    var movie: MVMovie?
-    
+        
     var disposeBag = DisposeBag()
     
     var obsMovie = BehaviorRelay<MVMovie>(value: MVMovie())
@@ -66,14 +64,13 @@ final class MVMovieDetailInteractor: MVMovieDetailPresenterInteractorProtocol {
     func getObsVideo() -> BehaviorRelay<MVVideo> {
         return obsVideo
     }
-
     
     func loadVideo() {
         APIManager.shared.fetchMovieVideos(movieId: obsMovie.value.id ?? 0) { [weak self] response in
             switch response {
             case .success(let videos):
                 let results = videos.results
-                var filtered = results.filter {
+                let filtered = results.filter {
                     $0.type == "Trailer"
                 }
                 

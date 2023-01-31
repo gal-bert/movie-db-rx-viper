@@ -50,7 +50,6 @@ final class MVMovieDetailModule: ModuleProtocol {
 		presenter.view = view
 		router.viewController = view
 		interactor.presenter = presenter
-//        interactor.movie = movie
         interactor.obsMovie.accept(movie)
 	}
 }

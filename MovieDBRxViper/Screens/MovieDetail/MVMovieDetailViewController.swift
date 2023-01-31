@@ -41,6 +41,7 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
     let movieDetailView = MVMovieDetailView()
     var obsMovie: BehaviorRelay<MVMovie>?
     var obsVideo: BehaviorRelay<MVVideo>?
+    var obsReviews: BehaviorRelay<[MVReview]>?
 
 	// MARK: Inits
 
@@ -61,12 +62,13 @@ class MVMovieDetailViewController: UIViewController, MVMovieDetailPresenterViewP
         movieDetailView.setup(vc: self)
         
         obsMovie = presenter.getObsMovie()
-        if let movie = obsMovie?.value {
-            obsMovie?.accept(movie)
-        }
         
         presenter.loadVideos()
         obsVideo = presenter.getObsVideo()
+        
+//        TODO: Get reviews
+//        presenter.loadReviews()
+//        obsReviews = presenter.getObsReviews()
         
     }
     
